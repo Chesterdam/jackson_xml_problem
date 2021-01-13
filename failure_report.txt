@@ -1,0 +1,63 @@
+Run ./gradlew run
+  ./gradlew run
+  shell: /bin/bash -e {0}
+  env:
+    JAVA_HOME_8.0.275_x64: /opt/hostedtoolcache/jdk/8.0.275/x64
+    JAVA_HOME: /opt/hostedtoolcache/jdk/8.0.275/x64
+    JAVA_HOME_8_0_275_X64: /opt/hostedtoolcache/jdk/8.0.275/x64
+> Task :compileKotlin UP-TO-DATE
+> Task :compileJava NO-SOURCE
+> Task :processResources NO-SOURCE
+> Task :classes UP-TO-DATE
+Error: Exception in thread "main" org.http4k.lens.LensFailure: body 'body' must be object
+
+> Task :run FAILED
+	at org.http4k.lens.BodyLens.invoke(body.kt:23)
+Foo test succeeded
+	at MainKt.testBar(main.kt:36)
+	at MainKt.main(main.kt:48)
+	at MainKt.main(main.kt)
+Caused by: com.fasterxml.jackson.databind.exc.InvalidDefinitionException: Invalid definition for property '' (of type `Bar`): Could not find creator property with name '' (known Creator properties: [text])
+ at [Source: (StringReader); line: 1, column: 10]
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:62)
+	at com.fasterxml.jackson.databind.DeserializationContext.reportBadPropertyDefinition(DeserializationContext.java:1761)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerFactory.addBeanProps(BeanDeserializerFactory.java:629)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerFactory.buildBeanDeserializer(BeanDeserializerFactory.java:275)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerFactory.createBeanDeserializer(BeanDeserializerFactory.java:150)
+	at com.fasterxml.jackson.databind.deser.DeserializerCache._createDeserializer2(DeserializerCache.java:414)
+	at com.fasterxml.jackson.databind.deser.DeserializerCache._createDeserializer(DeserializerCache.java:349)
+	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCache2(DeserializerCache.java:264)
+	at com.fasterxml.jackson.databind.deser.DeserializerCache._createAndCacheValueDeserializer(DeserializerCache.java:244)
+	at com.fasterxml.jackson.databind.deser.DeserializerCache.findValueDeserializer(DeserializerCache.java:142)
+	at com.fasterxml.jackson.databind.DeserializationContext.findRootValueDeserializer(DeserializationContext.java:591)
+	at com.fasterxml.jackson.databind.ObjectMapper._findRootDeserializer(ObjectMapper.java:4731)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4592)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3546)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3514)
+	at org.http4k.format.ConfigurableJacksonXml.asA(ConfgurableJacksonXml.kt:11)
+	at MainKt$testBar$$inlined$auto$3.invoke(AutoMarshallingXml.kt:32)
+	at MainKt$testBar$$inlined$auto$3.invoke(AutoMarshallingXml.kt:15)
+	at org.http4k.lens.LensGet$map$1.invoke(lensSpec.kt:264)
+	at org.http4k.lens.LensGet$map$1.invoke(lensSpec.kt:14)
+	at org.http4k.lens.LensGet$invoke$1.invoke(lensSpec.kt:15)
+	at org.http4k.lens.LensGet$invoke$1.invoke(lensSpec.kt:14)
+	at org.http4k.lens.BiDiBodyLensSpec$toLens$1.invoke(body.kt:80)
+	at org.http4k.lens.BiDiBodyLensSpec$toLens$1.invoke(body.kt:62)
+	at org.http4k.lens.BodyLens.invoke(body.kt:19)
+	... 3 more
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':run'.
+> Process 'command '/opt/hostedtoolcache/jdk/8.0.275/x64/bin/java'' finished with non-zero exit value 1
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 2s
+2 actionable tasks: 1 executed, 1 up-to-date
+Error: Process completed with exit code 1.
+
